@@ -1,28 +1,38 @@
 //Business Logic:
 
-const add(number1, number2) {
+const add = function(number1, number2) {
   return number1 + number2;
 };
 
-const subtract(number1, number2) {
+const subtract = function(number1, number2) {
   return number1 - number2;
 };
 
-const multiply(number1, number2) {
+const multiply = function(number1, number2) {
   return number1 * number2;
 };
 
-const divide(number1, number2) {
+const divide = function(number1, number2) {
   return number1 / number2;
 };
 
 // User Interface Logic
 
 $(document).ready(function() {
-  const number1= parseInt(prompt("Enter a number:"));
-  const number2= parseInt(prompt("Enter another number:"));
-
-  alert(add(number1, number2));
+  $("form#add").submit(function(event) {
+    event.preventDefault();
+    const number1 = parseInt($("#add1").val());
+    const number2 = parseInt($("#add2").val());
+    const result = add(number1, number2);
+    $("#output").text(result);
+  });
+  $("form#subtract").submit(function(event) {
+    event.preventDefault();
+    const number1 = parseInt($("#subtract1").val());
+    const number2 = parseInt($("#subtract2").val());
+    const result = subtract(number1, number2);
+    $("#output").text(result);
+  });
 });
 
 
